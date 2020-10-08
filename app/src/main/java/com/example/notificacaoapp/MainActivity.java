@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
         btnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayNotification();
-            }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayNotification();
+                    }
+                }, 10000);
+}
         });
 
 
